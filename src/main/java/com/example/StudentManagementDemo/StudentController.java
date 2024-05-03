@@ -41,11 +41,18 @@ public class StudentController {
     public int getByage(@RequestParam("age") int age)
     {
         int num=0;
-        for(Map.Entry<Integer,Student> SMap:StudentDB.entrySet()){
-            if(SMap.getValue().getAge()>age){
-                num++;
-            }
-        }
+//        for(Map.Entry<Integer,Student> SMap:StudentDB.entrySet())
+//        {
+//            if(SMap.getValue().getAge()>age)
+//            {
+//                num++;
+//            }
+//        }
+          for (int key:StudentDB.keySet()){
+              if(StudentDB.get(key).getAge()>age){
+                  num++;
+              }
+          }
         return num;
     }
 
