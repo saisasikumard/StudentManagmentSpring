@@ -22,7 +22,7 @@ public class StudentService {
 
             Student s=stdRepo.studentByAdmnNo(id);
             if(s==null){
-                return "No student available";
+                return null;
             }
             return s+msg;
     }

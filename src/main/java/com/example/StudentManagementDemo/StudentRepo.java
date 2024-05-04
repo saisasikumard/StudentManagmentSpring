@@ -14,7 +14,7 @@ public class StudentRepo
 
     public  String deleteStudent(int admnNo) {
         if(!StudentDB.containsKey(admnNo)){
-            return "No Student is there by admission Number!!";
+            return null;
         }
         StudentDB.remove(admnNo);
         return "Student removed Succesfully";
@@ -22,7 +22,7 @@ public class StudentRepo
 
     public String addStudent(Student student) {
         if(StudentDB.containsKey(student.getAdmnNo())){
-            return "Already admitted Student";
+            return null;
         }
         StudentDB.put(student.getAdmnNo(),student);
         return "Successfully added!!";
@@ -44,7 +44,7 @@ public class StudentRepo
             s.setCourse(course);
             return s.toString();
         }
-        return "No Student with admission Number to update";
+        return null;
 
     }
 
@@ -71,6 +71,9 @@ public class StudentRepo
             if(SMap.getValue().getAge()>age){
                 std.add(SMap.getValue().getName());
             }
+        }
+        if(std.size()==0){
+            return null;
         }
         return std.toString();
     }
